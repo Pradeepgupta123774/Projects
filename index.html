@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Your existing CSS styles */
+         
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #f4f4f4;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            color: #666;
+        }
+        section {
+            padding: 20px;
+            flex: 1;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .course {
+            width: 30%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .course h3 {
+            margin-top: 0;
+        }
+
+        .footer-nav {
+           background-color: #f0f0f0; /* Blue color */
+           
+            margin-top: auto; /* Set footer at the bottom */
+        }
+
+        .footer-nav .container {
+            padding: 70px 40px; /* Adjust padding to increase the width */
+        }
+
+        .footer-nav a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .footer-nav a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to our Educational Website</h1>
+    </header>
+    <nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md">
+                    <ul class="nav">
+                        <li><a href="about">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="login">Login</a></li>
+                        <li><a href="register">Register</a></li>
+                        <!-- All courses Notes dropdown menu -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                All courses Notes
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="/Services">Services</a>
+                                <a class="dropdown-item" href="upload">Class 9</a>
+                                <a class="dropdown-item" href="upload">Class 10</a>
+                                <a class="dropdown-item" href="upload">Class 11</a>
+                                <a class="dropdown-item" href="upload">Class 12</a>
+                                <a class="dropdown-item" href="upload">Politechnic</a>
+                            </div>
+                        </li>
+                        <!-- End of All courses Notes dropdown menu -->
+                    </ul>
+                </div>
+                <div class="col-md">
+                    <ul class="nav">
+                        <!-- All courses leacter dropdown menu -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                All courses leacter
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="/Services">Services</a>
+                                <a class="dropdown-item" href="#">Class 9</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Class 10</a>
+                                <a class="dropdown-item" href="#">Class 11</a>
+                                <a class="dropdown-item" href="#">Class 12</a>
+                                <a class="dropdown-item" href="#">Politechnic</a>
+                            </div>
+                        </li>
+                        <!-- End of All courses leacter dropdown menu -->
+                        <!-- Weekly Test dropdown menu -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Weekly Test
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="/weekly-test/class9">Class 9</a>
+
+                                <a class="dropdown-item" href="weekly-test/class10">Class 10</a>
+                                <a class="dropdown-item" href="weekly-test/class11">Class 11</a>
+                                <a class="dropdown-item" href="weekly-test/class12">Class 12</a>
+                                <a class="dropdown-item" href="weekly-test/polytechnic">Polytechnic</a>
+                            </div>
+                        </li>
+                        <!-- End of Weekly Test dropdown menu -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section id="dynamic-content" style="height: auto; width: 100%; background-color: #FBE9E7; padding: 20px;">
+        <div class="container">
+            <h2>उत्तर प्रदेश बोर्ड (यूपी बोर्ड) के छात्रों के लिए हमारी वेबसाइट</h2>
+            <p>नोट्स, पाठ्यपुस्तकें, मॉडल पेपर्स, और ऑनलाइन परीक्षणों की विशेषता है।</p>
+
+            <h3>कक्षा 9</h3>
+            <ul>
+                <li th:each="note : ${class9Notes}" th:text="${note}"></li>
+            </ul>
+
+            <h3>कक्षा 10</h3>
+            <ul>
+                <li th:each="note : ${class10Notes}" th:text="${note}"></li>
+            </ul>
+
+            <h3>कक्षा 11</h3>
+            <ul>
+                <li th:each="note : ${class11Notes}" th:text="${note}"></li>
+            </ul>
+
+            <h3>कक्षा 12</h3>
+            <ul>
+                <li th:each="note : ${class12Notes}" th:text="${note}"></li>
+            </ul>
+
+            <h3>पॉलिटेक्निक</h3>
+            <ul>
+                <li th:each="note : ${polytechnicNotes}" th:text="${note}"></li>
+            </ul>
+
+            <h3>NEET और IIT Foundation</h3>
+            <ul>
+                <li th:each="note : ${neetIITFoundationNotes}" th:text="${note}"></li>
+            </ul>
+        </div>
+    </section>
+    <footer class="footer-nav">
+        <nav class="navbar navbar-expand-lg navbar-white">
+            <div class="container">
+                <!-- Add your footer navbar items here -->
+            </div>
+        </nav>
+    </footer>
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
